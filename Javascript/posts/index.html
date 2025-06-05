@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <div class="navbar">
+                <div class="wrapper">
+                    <div class="navbar__container">
+                        <a href="#" class="logo">
+                            <img src="img/logoipsum-375.svg" alt="">
+                        </a>
+                        <nav>
+                            <ul class="main-nav">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Posts</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="section">
+                <div class="wrapper">
+                    <div class="posts">
+                        <!-- 1 -->
+                        <div class="post-card">
+                            <div class="post-card__image">
+                                <img src="https://placehold.co/600x400" alt="Post 1">
+                            </div>
+                            <div class="post-card__content">
+                                <h3 class="post-card__title">Title</h3>
+                                <div class="post-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repellat quod natus nisi ducimus excepturi, et ullam! Itaque, modi magni. Dolores error sequi laboriosam magni ipsum voluptatum. A, veritatis nisi!</div>
+                            </div>
+                            <a href="#1" class="post-card__link" aria-label="Read full post: Title"></a>
+                        </div>
+                        <!-- 2 -->
+                        <div class="post-card">
+                            <div class="post-card__image">
+                                <img src="https://placehold.co/600x400" alt="Post 1">
+                            </div>
+                            <div class="post-card__content">
+                                <h3 class="post-card__title">Title</h3>
+                                <div class="post-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repellat quod natus nisi ducimus excepturi, et ullam! Itaque, modi magni. Dolores error sequi laboriosam magni ipsum voluptatum. A, veritatis nisi!</div>
+                            </div>
+                            <a href="#1" class="post-card__link" aria-label="Read full post: Title"></a>
+                        </div>
+                        <!-- 3 -->
+                        <div class="post-card">
+                            <div class="post-card__image">
+                                <img src="https://placehold.co/600x400" alt="Post 1">
+                            </div>
+                            <div class="post-card__content">
+                                <h3 class="post-card__title">Title</h3>
+                                <div class="post-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit repellat quod natus nisi ducimus excepturi, et ullam! Itaque, modi magni. Dolores error sequi laboriosam magni ipsum voluptatum. A, veritatis nisi!</div>
+                            </div>
+                            <a href="#1" class="post-card__link" aria-label="Read full post: Title"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="wrapper">
+                &copy; 2025 Logoipsum Inc. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/posts.js"></script>
+    <script>
+        const posts = new Posts('https://jsonplaceholder.typicode.com');
+        posts.init();
+    </script>
+</body>
+
+</html>

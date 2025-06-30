@@ -1,0 +1,49 @@
+.Cart {
+    display: flex;
+    column-gap: 8px;
+    align-items: center;
+    position: relative;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+    }
+
+    &__trigger {
+        cursor: pointer;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        box-shadow: none;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            opacity: 1;
+        }
+    }
+
+    &__icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    &__count {
+        visibility: visible;
+    }
+
+    &__list {
+        position: absolute;
+        top: 100%;
+        left: calc(50% - 140px);
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 8px;
+        width: 280px;
+    }
+}

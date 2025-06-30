@@ -1,0 +1,9 @@
+.MainContent {
+    padding-block: 50px;
+
+    .products {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+}

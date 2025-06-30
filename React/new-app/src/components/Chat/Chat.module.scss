@@ -1,0 +1,45 @@
+.Chat {
+    visibility: visible;
+    width: 600px;
+    margin: 0 auto;
+
+    &__messages {
+        height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 20px 20px;
+    }
+
+    &__bottom {
+        display: flex;
+
+        &>textarea {
+            flex: 1;
+        }
+
+        &>button {
+            min-width: 120px;
+        }
+    }
+
+    &__message {
+        display: flex;
+        width: 100%;
+        margin-top: 20px;
+
+        &_out {
+            justify-content: flex-end;
+        }
+
+        &Cloud {
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+
+            &_out {
+                background-color: dodgerblue;
+                color: #fff;
+            }
+        }
+    }
+}

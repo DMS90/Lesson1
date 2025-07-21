@@ -1,3 +1,6 @@
+java -jar ./src/artifact/crud-api-0.0.1-SNAPSHOT.jar      
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

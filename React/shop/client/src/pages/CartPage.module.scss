@@ -1,0 +1,7 @@
+.CartPage {
+    &__products {
+        display: flex;
+        flex-direction: column;
+        row-gap: 18px;
+    }
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "category": {
+      "id": 2,
+      "name": "Компьютеры и ноутбуки",
+      "description": null
+    },
+    "name": "Ноутбук ASUS ROG Strix",
+    "description": "Игровой ноутбук, 16 ГБ RAM, RTX 3060",
+    "price": 1499.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 1,
+        "imageUrl": "http://localhost:10800/images/asus_rog_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      },
+      {
+        "id": 2,
+        "imageUrl": "http://localhost:10800/images/asus_rog_2.jpg",
+        "displayOrder": 2,
+        "main": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": {
+      "id": 2,
+      "name": "Компьютеры и ноутбуки",
+      "description": null
+    },
+    "name": "MacBook Pro 14",
+    "description": "Apple M1 Pro, 16 ГБ RAM, 512 ГБ SSD",
+    "price": 1999.00,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 3,
+        "imageUrl": "http://localhost:10800/images/macbook_pro_1.png",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": {
+      "id": 2,
+      "name": "Компьютеры и ноутбуки",
+      "description": null
+    },
+    "name": "Игровой ПК HP Omen",
+    "description": "Intel i7, 32 ГБ RAM, RTX 3080",
+    "price": 2499.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 4,
+        "imageUrl": "http://localhost:10800/images/omen_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": {
+      "id": 3,
+      "name": "Смартфоны и гаджеты",
+      "description": null
+    },
+    "name": "iPhone 15 Pro",
+    "description": "6.1, A17 Pro, 128 ГБ",
+    "price": 999.00,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 5,
+        "imageUrl": "http://localhost:10800/images/iphone15_1.png",
+        "displayOrder": 1,
+        "main": true
+      },
+      {
+        "id": 6,
+        "imageUrl": "http://localhost:10800/images/iphone15_2.jpg",
+        "displayOrder": 2,
+        "main": false
+      },
+      {
+        "id": 7,
+        "imageUrl": "http://localhost:10800/images/iphone15_3.jpg",
+        "displayOrder": 3,
+        "main": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": {
+      "id": 3,
+      "name": "Смартфоны и гаджеты",
+      "description": null
+    },
+    "name": "Samsung Galaxy S23 Ultra",
+    "description": "6.8, 256 ГБ, S Pen",
+    "price": 1199.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 8,
+        "imageUrl": "http://localhost:10800/images/galaxy_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": {
+      "id": 3,
+      "name": "Смартфоны и гаджеты",
+      "description": null
+    },
+    "name": "Xiaomi Redmi Note 12",
+    "description": "6.67, 128 ГБ, AMOLED",
+    "price": 249.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 9,
+        "imageUrl": "http://localhost:10800/images/xiaomi_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": {
+      "id": 8,
+      "name": "Кухонная техника",
+      "description": null
+    },
+    "name": "Холодильник Bosch",
+    "description": "No Frost, 350 л",
+    "price": 1299.00,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 10,
+        "imageUrl": "http://localhost:10800/images/bosch_fridge_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": {
+      "id": 8,
+      "name": "Кухонная техника",
+      "description": null
+    },
+    "name": "Кофемашина DeLonghi",
+    "description": "Автоматическая капсульная",
+    "price": 499.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 11,
+        "imageUrl": "http://localhost:10800/images/coffee.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "category": {
+      "id": 9,
+      "name": "Красота и здоровье",
+      "description": null
+    },
+    "name": "Фен Dyson Supersonic",
+    "description": "Профессиональный фен",
+    "price": 429.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 12,
+        "imageUrl": "http://localhost:10800/images/dyson_hair_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      },
+      {
+        "id": 13,
+        "imageUrl": "http://localhost:10800/images/dyson_hair_2.jpg",
+        "displayOrder": 2,
+        "main": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "category": {
+      "id": 9,
+      "name": "Красота и здоровье",
+      "description": null
+    },
+    "name": "Электрическая зубная щетка Oral-B",
+    "description": "Smart 1500 с датчиком давления",
+    "price": 99.99,
+    "createdAt": "2025-07-10T10:23:23.174363",
+    "updatedAt": "2025-07-10T10:23:23.174363",
+    "images": [
+      {
+        "id": 14,
+        "imageUrl": "http://localhost:10800/images/oral-b_1.jpg",
+        "displayOrder": 1,
+        "main": true
+      }
+    ]
+  }
+]

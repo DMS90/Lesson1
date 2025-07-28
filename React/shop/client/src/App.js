@@ -2,8 +2,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import './App.scss';
 import { HomePage } from './pages/HomePage';
 import { CartPage } from './pages/CartPage';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import { LocalStorageHelper } from './lib/LocalStorageHelper';
+import { Requests } from './services/Requests';
 
 export const CartContext = createContext();
 export const ProductsContext = createContext();
@@ -20,9 +21,10 @@ let router = createBrowserRouter([
   },
 ]);
 
+const requests = new Requests();
+
 function App() {
   const [cartItems, setCartItems] = useState(LocalStorageHelper.load(localStorageKey) || []);
-  const [products, setProducts] = useState([]);
   console.log('Cart items: ', cartItems);
 
   const getCartItems = () => {
@@ -33,10 +35,16 @@ function App() {
     }
   }
 
-  const addItemToCart = (productId) => {
-    //FIXME: Делать запрос на продукты
-    const product = products.find(product => product.id === productId);
+  const addItemToCart = async (productId) => {
+    let product = null;
+    try {
+      product = await requests.getProductById(productId);
+    } catch (err) {
+      console.error(err);
+    }
+
     if (!product) { return; }
+
     setCartItems(prevItems => {
       let newItems = [...prevItems ?? []];
       const foundIndex = newItems.findIndex(item => item.id === productId);
@@ -51,25 +59,32 @@ function App() {
     });
   }
 
-  const removeItemFromCart = (productId) => {
-    //FIXME: Делать запрос на продукты
-    const product = products.find(product => product.id === productId);
-    if (!product) { return; }
+  const removeItemFromCart = async (productId) => {
     setCartItems(prevItems => {
       let newItems = [...prevItems ?? []];
       const foundIndex = newItems.findIndex(item => item.id === productId);
       const found = newItems[foundIndex];
       if (found) {
         if (found.count <= 1) {
-          newItems.slice(foundIndex, 1);
+          newItems = newItems.filter((item, index) => index !== foundIndex);
           LocalStorageHelper.save(localStorageKey, [...newItems]);
-          return [...newItems];
+          return [...newItems ?? []];
         } else {
-          newItems.slice(foundIndex, 1);
           newItems = newItems.map(item => item.id === productId ? { ...item, count: item.count - 1 } : item)
           LocalStorageHelper.save(localStorageKey, [...newItems]);
+          return [...newItems ?? []];
         }
       }
+    });
+  }
+
+  const removeProductFromCart = async (productId) => {
+    setCartItems(prevItems => {
+      let newItems = [...prevItems ?? []];
+      const foundIndex = newItems.findIndex(item => item.id === productId);
+      newItems = newItems.filter((item, index) => index !== foundIndex);
+      LocalStorageHelper.save(localStorageKey, [...newItems]);
+      return [...newItems ?? []];
     });
   }
 
@@ -82,10 +97,13 @@ function App() {
 
   return (
     <div className='app'>
-      <CartContext.Provider value={{ getCartItems, addItemToCart, removeItemFromCart }}>
-        <ProductsContext.Provider value={{ products, setProducts }}>
-          <RouterProvider router={router} />
-        </ProductsContext.Provider>
+      <CartContext.Provider value={{
+        getCartItems,
+        addItemToCart,
+        removeItemFromCart,
+        removeProductFromCart
+      }}>
+        <RouterProvider router={router} />
       </CartContext.Provider>
     </div >
   );

@@ -76,19 +76,24 @@
         display: flex;
 
         button {
-            width: 42px;
             height: auto;
             margin: 0;
-            padding: 0;
+            padding: 4px 8px;
             min-width: 0;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-shadow: 0;
+            box-shadow: none;
             background-color: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            gap: 4px;
+            font-size: 16px;
+
+            &.active {
+                background-color: #91cb9c;
+            }
 
             &:hover {
                 background-color: #cbdfff;
@@ -101,7 +106,7 @@
             }
 
             &>img {
-                width: 70%;
+                width: 32px;
                 height: auto;
             }
         }

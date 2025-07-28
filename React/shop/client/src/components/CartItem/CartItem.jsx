@@ -5,8 +5,8 @@ import styles from './CartItem.module.scss';
 export const CartItem = (props) => {
     console.log(props);
     const summary = useMemo(() => {
-return props
-    }, [])
+        return props.count * props.price;
+    }, [props.count, props.price])
 
     function onAddClick() {
         if (props.onIncrementClick) {
@@ -17,6 +17,12 @@ return props
     function onRemoveClick() {
         if (props.onDecrementClick) {
             props.onDecrementClick(props.id);
+        }
+    }
+
+    function onClearClick() {
+        if (props.onClearClick) {
+            props.onClearClick(props.id);
         }
     }
 
@@ -48,8 +54,14 @@ return props
                 <div className={styles.CartItem__singleprice}>Цена за штуку: {props.price ?? ''}&nbsp;&#8381;</div>
             </div>
             <div className={styles.CartItem__summary}>
-                <span className={styles.CartItem__summaryPrice}>100500&nbsp;&#8381;</span>
-                <button title='Удалить из корзины' className={styles.CartItem__summaryRemove}>X</button>
+                <span className={styles.CartItem__summaryPrice}>{summary}&nbsp;&#8381;</span>
+                <button
+                    title='Удалить из корзины'
+                    className={styles.CartItem__summaryRemove}
+                    onClick={onClearClick}
+                >
+                    X
+                </button>
             </div>
         </div>
     );

@@ -5,8 +5,7 @@ import { CartItem } from '../components/CartItem/CartItem';
 import styles from './CartPage.module.scss';
 
 export const CartPage = () => {
-    const { products, setProducts } = useContext(ProductsContext);
-    const { getCartItems, addItemToCart, removeItemFromCart } = useContext(CartContext);
+    const { getCartItems, addItemToCart, removeItemFromCart, removeProductFromCart } = useContext(CartContext);
 
     function cartToDisplayItems() {
         return getCartItems();
@@ -29,6 +28,10 @@ export const CartPage = () => {
 
     function onProductAddClick(productId) {
         addItemToCart(productId);
+    }
+
+    function onClearClick(productId) {
+        removeProductFromCart(productId);
     }
 
     // function removeObjectWithId(arr, id) {
@@ -65,6 +68,7 @@ export const CartPage = () => {
                                         id={item.id}
                                         onIncrementClick={onProductAddClick}
                                         onDecrementClick={onProductRemoveClick}
+                                        onClearClick={onClearClick}
                                     />
                                 )
                             })}

@@ -6,6 +6,8 @@ import { CartContext } from '../../App';
 export const Product = memo(
     function Product(props) {
         const { id, name, description, images, price, addToCart } = props;
+        const { getCartItems } = useContext(CartContext);
+        const inCart = (getCartItems() ?? []).find(item => item.id === id);
 
         const getMainImage = () => {
             const mainImage = (images ?? []).filter(image => image.main);
@@ -27,8 +29,9 @@ export const Product = memo(
                         {price ?? ''}&nbsp;&#8381;
                     </div>
                     <div className={styles.Product__add}>
-                        <button onClick={() => addToCart(id)}>
+                        <button className={inCart && styles.active} onClick={() => addToCart(id)}>
                             <img src={CartIconUrl} alt='' />
+                            {inCart?.count ? <span>{inCart.count}</span> : <></>}
                         </button>
                     </div>
                 </div>

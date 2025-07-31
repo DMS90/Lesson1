@@ -54,7 +54,7 @@ export const CartItem = (props) => {
                 <div className={styles.CartItem__singleprice}>Цена за штуку: {props.price ?? ''}&nbsp;&#8381;</div>
             </div>
             <div className={styles.CartItem__summary}>
-                <span className={styles.CartItem__summaryPrice}>{summary}&nbsp;&#8381;</span>
+                <span className={styles.CartItem__summaryPrice}>{summary.toFixed(2)}&nbsp;&#8381;</span>
                 <button
                     title='Удалить из корзины'
                     className={styles.CartItem__summaryRemove}

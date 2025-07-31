@@ -1,12 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { Footer } from '../components/Footer/Footer';
-import { Header } from '../components/Header/Header';
 import { MainContent } from '../components/MainContent/MainContent';
 import { Product } from '../components/Product/Product'
-import { CartContext, ProductsContext } from '../App';
+import { CartContext } from '../App';
 import styles from './HomePage.module.scss'
 import { Requests } from '../services/Requests';
-import { groupBy } from 'lodash';
 
 const requests = new Requests();
 
@@ -15,11 +12,21 @@ export const HomePage = () => {
     const [categories, setCategories] = useState([]);
     const [filter, setFilter] = useState('');
     const [categoryId, setCategoryId] = useState(-1);
+    const [sortField, setSortField] = useState('');
+    const [sortAsc, setSortAsc] = useState(false);
     const { addItemToCart } = useContext(CartContext);
+
+    let sortText = '';
+
+    if (sortField) {
+        sortText = sortAsc ? ' (по возр.)' : ' (по убыв.)';
+    }
 
     const update = async () => {
         console.log('Filter: ', filter);
         console.log('Catgory ID', categoryId);
+        console.log('Sort field: ', sortField);
+        console.log('sortAsc', sortAsc);
         try {
             let data = [];
             if (!filter && (categoryId === -1 || categoryId === null || categoryId === undefined)) {
@@ -32,6 +39,12 @@ export const HomePage = () => {
                 data = await requests.getProductsByCategrory(categoryId, filter);
             }
             const newCategories = await requests.getCategories();
+            if (sortField) {
+                data = data.sort((a, b) => b.price - a.price);
+                if (sortAsc) {
+                    data = data.reverse();
+                }
+            }
             setCategories(newCategories);
             setProducts(data);
         } catch (err) {
@@ -42,6 +55,20 @@ export const HomePage = () => {
     const addToCart = (productId) => {
         addItemToCart(productId);
     };
+
+    const changePriceSorting = (field) => {
+        if (sortField === '' && !sortAsc) {
+            // Set sort desc 
+            setSortField(field);
+        } else if (sortField !== '' && !sortAsc) {
+            // Change sort directon
+            setSortAsc(true);
+        } else if (sortField !== '' && sortAsc) {
+            // Reset
+            setSortField('');
+            setSortAsc(false);
+        }
+    }
 
     const renderCategories = () => {
         return (categories ?? []).map(cat => (
@@ -64,7 +91,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         update();
-    }, [filter, categoryId]);
+    }, [filter, categoryId, sortField, sortAsc]);
 
     return (
         <MainContent>
@@ -84,9 +111,19 @@ export const HomePage = () => {
                             }}
                         />
                     </div>
-                    <div className={styles.HomePage__categories}>
-                        {renderCategories()}
+                    <div className={styles.HomePage__controls}>
+                        <div className={styles.HomePage__categories}>
+                            {renderCategories()}
+                        </div>
+                        <div className={styles.HomePage__sorter}>
+                            <button
+                                className={sortField ? styles.active : ''}
+                                onClick={() => changePriceSorting('price')}>
+                                Сортировка по цене{sortText}
+                            </button>
+                        </div>
                     </div>
+
                     <div className={styles.products}>
                         {(products ?? []).map(product => {
                             return <Product
